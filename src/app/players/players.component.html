@@ -1,0 +1,28 @@
+<p>Players Works</p>
+
+<select [hidden]="player_display == 'a1'" [(ngModel)]="countrySelected" (change)="filterPlayer()">
+  <option value='0'>Filtrer par pays</option>
+  <option *ngFor="let country of countries">{{country}}</option>
+</select>
+
+<table [hidden]="player_display == 'a1'" class="table table-bordered table-striped">
+  <tr>
+    <th>Photo</th>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Equipe</th>
+    <th>Pays</th>
+    <th>Position</th>
+  </tr>
+
+  <tr *ngFor="let player of playersFiltered">
+    <td>
+      <img class="picture_small" src="{{player.getPic()}}" alt="player.lastname">
+    </td>
+    <td><a routerLink="/players/{{player.lastname}}">{{ player.lastname }}</a></td>
+    <td>{{ player.firstname }}</td>
+    <td>{{ player.current_team }}</td>
+    <td>{{ player.country }}</td>
+    <td>{{ player.position }}</td>
+  </tr>
+</table>

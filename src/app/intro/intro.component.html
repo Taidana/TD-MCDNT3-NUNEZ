@@ -1,0 +1,41 @@
+<h1>Introduction à Angular</h1>
+
+<p *ngFor="let color of teamService.getColors()">{{color}}</p>
+
+<div>
+  <div *ngIf="!admin_status">
+    <input type="checkbox" (click)="admin_status = !admin_status">Admin
+  </div>
+  <div *ngIf="admin_status">
+    <input type="checkbox" checked (click)="admin_status = !admin_status">Admin
+  </div>
+</div>
+
+<p>{{ admin_status }}</p>
+
+<button type="button" name="button" (click)="test()">Click</button>
+<button type="button" name="button" (click)="clear()">Clear</button>
+<p>{{ message }}</p>
+<p>{{ message2 }}</p>
+
+<div>
+  <input type="text" [value]="title" (keyup)="onKeyUp($event)">
+</div>
+
+<div>
+  <input type="text" [(ngModel)]="name">
+  <p>Je m'appelle: <strong>{{ name }}</strong></p>
+</div>
+
+<h2>Liste des stagiaires</h2>
+<p *ngFor="let stagiaire of stagiaires">{{stagiaire}}</p>
+
+<ul>
+  <li *ngFor="let stagiaire of stagiaires">{{stagiaire}}</li>
+</ul>
+
+<select>
+  <option *ngFor="let topic of book.topics">{{topic.labelFr}}</option>
+</select>
+
+<p>{{ book1.getTitle() }}, paru en {{ book1.getYear() }}</p>

@@ -1,0 +1,56 @@
+<h2>Liste des équipes</h2>
+
+<div>
+  Affichage
+  <select [(ngModel)]="team_display">
+    <option value="a1">Fiches</option>
+    <option value="a2">Tableau</option>
+  </select>
+  <select [hidden]="team_display == 'a1'" [(ngModel)]="countrySelected" (change)="filterTeam()">
+    <option value="0">Filtrer par pays</option>
+    <option *ngFor="let country of countries">{{country}}</option>
+  </select>
+  <span [hidden]="team_display == 'a1' || countrySelected == '0' ">
+    {{ teamsFiltered.length }} équipes trouvées
+  </span>
+
+</div>
+
+<team
+  [hidden]="team_display == 'a2'"
+  style="margin-bottom:70px; display:block"
+  [team]="team"
+  *ngFor="let team of teams"></team>
+
+<table [hidden]="team_display == 'a1'" class="table table-bordered table-striped">
+  <tr>
+    <th>Logo</th>
+    <th>Nom</th>
+    <th>Pays</th>
+    <th>Stade</th>
+    <th>Entraîneur</th>
+    <th>Année de création</th>
+    <th>Coupes</th>
+  </tr>
+  <!-- <tr *ngFor="let team of teams" [hidden]="countrySelected != team.country"> -->
+  <tr *ngFor="let team of teamsFiltered">
+    <td>
+      <img class="logo_small" src="{{team.getLogoUrl()}}" alt="team.name">
+    </td>
+    <td><a routerLink="/teams/{{team.name}}">{{ team.name }}</a></td>
+    <td>{{ team.country }}</td>
+    <td>{{ team.stadium }}</td>
+    <td>{{ team.coach }}</td>
+    <td [ngClass]="{old: team.founded < 1950}">{{ team.founded }}</td>
+    <td><cup [nb]="team.nbCup"></cup></td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+<!-- -->

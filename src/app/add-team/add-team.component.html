@@ -1,0 +1,65 @@
+<h3>Ajout d'une équipe</h3>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="form-group">
+        <label for="logo">Logo (URL)</label>
+        <input
+          placeholder="http://"
+          id="logo"
+          type="text"
+          class="form-control"
+          [(ngModel)]="team.logo" >
+      </div>
+
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input id="name" type="text" class="form-control" [(ngModel)]="team.name" >
+        </div>
+
+        <div class="form-group">
+          <label for="coach">Entraîneur</label>
+          <input id="coach" type="text" class="form-control" [(ngModel)]="team.coach" >
+        </div>
+
+        <div class="form-group">
+          <label for="country">Pays</label>
+          <select id="country" class="form-control" [(ngModel)]="team.country">
+            <option *ngFor="let country of countries">{{country}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="stadium">Stade</label>
+          <input id="stadium" type="text" class="form-control" [(ngModel)]="team.stadium">
+        </div>
+
+        <div class="form-group">
+          <label for="founded">Année de création</label>
+          <input id="founded" type="number" class="form-control" [(ngModel)]="team.founded">
+        </div>
+
+        <div class="form-group">
+          <label for="nbCup">Nombre de coupes</label>
+          <select id="nbCup" [(ngModel)]="team.nbCup" class="form-control">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <cup [nb]="team.nbCup"></cup>
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Enregistrer</button>
+
+
+    </div>
+    <div class="col-md-6">
+
+    </div>
+  </div>
+</div>

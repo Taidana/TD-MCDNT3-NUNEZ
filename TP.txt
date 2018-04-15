@@ -1,0 +1,17 @@
+*** MCDNT3 Angular : TP ***
+
+1. En vous inspirant du travail effectué cette semaine avec les équipes, créer:
+  1.1 une classe Player modélisant un joueur
+      id, picture, lastname, firstname, current_team, country, position (gardien, défenseur, ...)
+  1.2 un composant players affichant un tableau de joueurs
+  1.3 un service player fournissant les données
+  1.4 une route /players avec, dans la navigation, un lien "Joueurs" vers ce composant
+
+2. Au-dessus du tableau des joueurs, proposer deux filtres:
+  - par équipe (menu déroulant avec les nom des équipes)
+  - par poste sur le terrain (menu déroulant avec les postes)
+
+3. Dans le TeamComponent, afficher la liste des joueurs appartenant à l'équipe cible
+
+n.b: la source de données pourra, au choix, être statique (directement définie comme
+propriété dans le service) ou bien en provenance d'un serveur.

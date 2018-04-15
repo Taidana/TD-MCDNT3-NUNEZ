@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2>{{ player.id }}</h2>
+      <img class="picture" src="{{player.getPicture()}}" alt="{{player.firstname}}">
+    </div>
+    <div class="col-md-6">
+      <p>Nom de Famille {{player.lastname}}<p>
+      <p>Prénom {{player.firstname }}</p>
+      <p>Equipe Courante {{player.current_team}}</p>
+      <p>Pays {{player.country}}</p>
+      <p>Position {{player.position}}</p>
+    </div>
+  </div>
+</div>
